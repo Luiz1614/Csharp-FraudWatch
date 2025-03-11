@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudWatch", "FraudWatch.csproj", "{98FA6102-56B0-442F-B323-14DA1DADC622}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudWatch.Api", "FraudWatch.Api.csproj", "{98FA6102-56B0-442F-B323-14DA1DADC622}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - API", "1 - API", "{BFF31E46-1A8E-4747-9CBB-A420C7E99E6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{2F378B0B-0983-4F78-90D8-AC2D92BA2A3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudWatch.Domain", "..\FraudWatch.Domain\FraudWatch.Domain.csproj", "{D85DE053-6F2A-4B17-B3EB-1ED380C34A32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infraestructure", "4 - Infraestructure", "{BBFE85A7-C2D5-40AF-BCD4-F7CA7FFAF7DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudWatch.Infraestructure", "..\FraudWatch.Infraestructure\FraudWatch.Infraestructure.csproj", "{37D087D7-EBE1-4273-9EC0-9636FD5E31C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +25,21 @@ Global
 		{98FA6102-56B0-442F-B323-14DA1DADC622}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98FA6102-56B0-442F-B323-14DA1DADC622}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98FA6102-56B0-442F-B323-14DA1DADC622}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D85DE053-6F2A-4B17-B3EB-1ED380C34A32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D85DE053-6F2A-4B17-B3EB-1ED380C34A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D85DE053-6F2A-4B17-B3EB-1ED380C34A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D85DE053-6F2A-4B17-B3EB-1ED380C34A32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37D087D7-EBE1-4273-9EC0-9636FD5E31C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37D087D7-EBE1-4273-9EC0-9636FD5E31C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37D087D7-EBE1-4273-9EC0-9636FD5E31C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37D087D7-EBE1-4273-9EC0-9636FD5E31C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{98FA6102-56B0-442F-B323-14DA1DADC622} = {BFF31E46-1A8E-4747-9CBB-A420C7E99E6D}
+		{D85DE053-6F2A-4B17-B3EB-1ED380C34A32} = {2F378B0B-0983-4F78-90D8-AC2D92BA2A3A}
+		{37D087D7-EBE1-4273-9EC0-9636FD5E31C4} = {BBFE85A7-C2D5-40AF-BCD4-F7CA7FFAF7DB}
 	EndGlobalSection
 EndGlobal
