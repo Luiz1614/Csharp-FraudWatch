@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FraudWatch.Domain\FraudWatch.Domain.csproj" />
+    <ProjectReference Include="..\FraudWatch.Infraestructure\FraudWatch.Infraestructure.csproj" />
+  </ItemGroup>
+
 </Project>
