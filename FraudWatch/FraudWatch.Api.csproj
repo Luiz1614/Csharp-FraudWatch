@@ -14,11 +14,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\FraudWatch.Application\FraudWatch.Application.csproj" />
+    <ProjectReference Include="..\FraudWatch.Domain\FraudWatch.Domain.csproj" />
+    <ProjectReference Include="..\FraudWatch.Infraestructure\FraudWatch.Infraestructure.csproj" />
+    <ProjectReference Include="..\FraudWatch.IoC\FraudWatch.IoC.csproj" />
   </ItemGroup>
 
 </Project>
