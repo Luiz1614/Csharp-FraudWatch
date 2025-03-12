@@ -1,8 +1,11 @@
-﻿using FraudWatch.Application.Interfaces;
+﻿using FraudWatch.Application.Factories;
+using FraudWatch.Application.Factories.Interfaces;
 using FraudWatch.Application.Mappings;
 using FraudWatch.Application.Services;
+using FraudWatch.Application.Services.Interfaces;
 using FraudWatch.Infraestructure.Data.AppData;
 using FraudWatch.Infraestructure.Data.Repositories;
+using FraudWatch.Infraestructure.Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +27,9 @@ public class Bootstrap
 
         service.AddScoped<IDentistaApplicationService, DentistaApplicationService>();
         service.AddScoped<IAnalistaApplicationService, AnalistaApplicationService>();
+
+        service.AddScoped<IDentistaFactory, DentistaFactory>();
+        service.AddScoped<IAnalistaFactory, AnalistaFactory>();
 
         service.AddAutoMapper(typeof(MapperProfile));
     }

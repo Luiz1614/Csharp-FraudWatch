@@ -1,5 +1,6 @@
 ﻿using FraudWatch.Domain.Entities;
 using FraudWatch.Infraestructure.Data.AppData;
+using FraudWatch.Infraestructure.Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace FraudWatch.Infraestructure.Data.Repositories;

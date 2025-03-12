@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using FraudWatch.Application.DTOs;
-using FraudWatch.Application.Interfaces;
+using FraudWatch.Application.Services.Interfaces;
 using FraudWatch.Domain.Entities;
-using FraudWatch.Infraestructure.Data.Repositories;
+using FraudWatch.Infraestructure.Data.Repositories.Interfaces;
 
 namespace FraudWatch.Application.Services;
 

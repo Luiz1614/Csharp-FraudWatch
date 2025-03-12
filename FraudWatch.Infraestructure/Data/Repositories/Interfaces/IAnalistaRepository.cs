@@ -1,6 +1,6 @@
 ﻿using FraudWatch.Domain.Entities;
 
-namespace FraudWatch.Infraestructure.Data.Repositories;
+namespace FraudWatch.Infraestructure.Data.Repositories.Interfaces;
 
 public interface IAnalistaRepository
 {

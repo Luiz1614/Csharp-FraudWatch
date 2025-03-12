@@ -1,7 +1,7 @@
 ﻿using FraudWatch.Application.DTOs;
 using FraudWatch.Domain.Entities;
 
-namespace FraudWatch.Application.Interfaces;
+namespace FraudWatch.Application.Services.Interfaces;
 
 public interface IDentistaApplicationService
 {
