@@ -1,4 +1,5 @@
-﻿using FraudWatch.Application.DTOs;
+﻿using AutoMapper;
+using FraudWatch.Application.DTOs;
 using FraudWatch.Application.Interfaces;
 using FraudWatch.Domain.Entities;
 using FraudWatch.Infraestructure.Data.Repositories;
@@ -8,22 +9,17 @@ namespace FraudWatch.Application.Services;
 public class AnalistaApplicationService : IAnalistaApplicationService
 {
     private readonly IAnalistaRepository _analistaRepository;
+    private readonly IMapper _mapper;
 
-    public AnalistaApplicationService(IAnalistaRepository analistaRepository)
+    public AnalistaApplicationService(IAnalistaRepository analistaRepository, IMapper mapper)
     {
-        _analistaRepository=analistaRepository;
+        _analistaRepository = analistaRepository;
+        _mapper = mapper;
     }
 
     public void Add(AnalistaDTO analistaDTO)
     {
-        var analistaEntity = new AnalistaEntity
-        {
-            Nome = analistaDTO.Nome,
-            Email = analistaDTO.Email,
-            CPF = analistaDTO.CPF,
-            Departamento = analistaDTO.Departamento
-        };
-
+        var analistaEntity = _mapper.Map<AnalistaEntity>(analistaDTO);
         _analistaRepository.AddAnalista(analistaEntity);
     }
 
@@ -49,12 +45,7 @@ public class AnalistaApplicationService : IAnalistaApplicationService
 
     public void Update(int id, AnalistaDTO analistaDTO)
     {
-        _analistaRepository.UpdateAnalistaByID(id, new AnalistaEntity
-        {
-            Nome = analistaDTO.Nome,
-            Email = analistaDTO.Email,
-            CPF = analistaDTO.CPF,
-            Departamento = analistaDTO.Departamento
-        });
+        var analistaEntity = _mapper.Map<AnalistaEntity>(analistaDTO);
+        _analistaRepository.UpdateAnalistaByID(id, analistaEntity);
     }
 }

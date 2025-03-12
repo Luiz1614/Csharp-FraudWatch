@@ -13,7 +13,7 @@ public class AnalistaDTO
     public string Email { get; set; }
 
     [Required(ErrorMessage = $"O campo {nameof(DataNascimento)} é obrigatório.")]
-    public DateTime DataNascimento { get; set; }
+    public DateOnly DataNascimento { get; set; }
 
     [Required(ErrorMessage = $"O campo {nameof(CPF)} é obrigatório.")]
     [StringLength(11)]

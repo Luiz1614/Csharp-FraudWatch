@@ -1,4 +1,5 @@
-﻿using FraudWatch.Application.DTOs;
+﻿using AutoMapper;
+using FraudWatch.Application.DTOs;
 using FraudWatch.Application.Interfaces;
 using FraudWatch.Domain.Entities;
 using FraudWatch.Infraestructure.Data.Repositories;
@@ -9,22 +10,17 @@ namespace FraudWatch.Application.Services;
 public class DentistaApplicationService : IDentistaApplicationService
 {
     private readonly IDentistaRepository _dentistaRepository;
+    private readonly IMapper _mapper;
 
-    public DentistaApplicationService(IDentistaRepository dentistaRepository)
+    public DentistaApplicationService(IDentistaRepository dentistaRepository, IMapper mapper)
     {
         _dentistaRepository = dentistaRepository;
+        _mapper = mapper;
     }
 
     public void Add(DentistaDTO dentistaDTO)
     {
-        var dentistaEntity = new DentistaEntity
-        {
-            Nome = dentistaDTO.Nome,
-            Email = dentistaDTO.Email,
-            CPF = dentistaDTO.CPF,
-            CRO = dentistaDTO.CRO
-        };
-
+        var dentistaEntity = _mapper.Map<DentistaEntity>(dentistaDTO);
         _dentistaRepository.AddDentista(dentistaEntity);
     }
 
@@ -50,12 +46,7 @@ public class DentistaApplicationService : IDentistaApplicationService
 
     public void Update(int id, DentistaDTO dentistaDTO)
     {
-        _dentistaRepository.UpdateDentistaById(id, new DentistaEntity
-        {
-            Nome = dentistaDTO.Nome,
-            Email = dentistaDTO.Email,
-            CPF = dentistaDTO.CPF,
-            CRO = dentistaDTO.CRO
-        });
+        var dentistaEntity = _mapper.Map<DentistaEntity>(dentistaDTO);
+        _dentistaRepository.UpdateDentistaById(id, dentistaEntity);
     }
 }
