@@ -1,6 +1,7 @@
 ﻿using FraudWatch.Application.DTOs;
 using FraudWatch.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace FraudWatch.Presentation.Controller;
 
@@ -16,7 +17,12 @@ public class DentistaController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult Get()
+    [SwaggerOperation(Summary = "Retorna uma lista de todos os dentistas.")]
+    [SwaggerResponse(200, "Dentistas obtidos com sucesso.")]
+    [SwaggerResponse(204, "Nenhum dentista encontrado.")]
+    [SwaggerResponse(400, "Requisição inválida. Verifique os dados fornecidos.")]
+    [SwaggerResponse(500, "Erro interno no servidor.")]
+    public IActionResult GetAllDentistas()
     {
         try
         {
@@ -34,7 +40,12 @@ public class DentistaController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public IActionResult Get(int id)
+    [SwaggerOperation(Summary = "Retorna um dentista pelo ID.")]
+    [SwaggerResponse(200, "Dentista obtido com sucesso.")]
+    [SwaggerResponse(400, "Requisição inválida. Verifique os dados fornecidos.")]
+    [SwaggerResponse(404, "Dentista não encontrado.")]
+    [SwaggerResponse(500, "Erro interno no servidor.")]
+    public IActionResult GetDentistaById(int id)
     {
         try
         {
@@ -52,7 +63,12 @@ public class DentistaController : ControllerBase
     }
 
     [HttpGet("cro/{cro}")]
-    public IActionResult Get(string cro)
+    [SwaggerOperation(Summary = "Retorna um dentista pelo CRO.")]
+    [SwaggerResponse(200, "Dentista obtido com sucesso.")]
+    [SwaggerResponse(400, "Requisição inválida. Verifique os dados fornecidos.")]
+    [SwaggerResponse(404, "Dentista não encontrado.")]
+    [SwaggerResponse(500, "Erro interno no servidor.")]
+    public IActionResult GetDentistaByCro(string cro)
     {
         try
         {
@@ -70,12 +86,16 @@ public class DentistaController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Post([FromBody] DentistaDTO dentistaDTO)
+    [SwaggerOperation(Summary = "Adiciona um novo dentista.")]
+    [SwaggerResponse(201, "Dentista adicionado com sucesso.")]
+    [SwaggerResponse(400, "Requisição inválida. Verifique os dados fornecidos.")]
+    [SwaggerResponse(500, "Erro interno no servidor.")]
+    public IActionResult PostDentista([FromBody] DentistaDTO dentistaDTO)
     {
         try
         {
             _dentistaApplicationService.Add(dentistaDTO);
-            return Ok();
+            return Created();
         }
         catch (Exception ex)
         {
@@ -84,7 +104,11 @@ public class DentistaController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public IActionResult Put(int id, [FromBody] DentistaDTO dentistaDTO)
+    [SwaggerOperation(Summary = "Atualiza um dentista pelo ID.")]
+    [SwaggerResponse(200, "Dentista atualizado com sucesso.")]
+    [SwaggerResponse(400, "Requisição inválida. Verifique os dados fornecidos.")]
+    [SwaggerResponse(500, "Erro interno no servidor.")]
+    public IActionResult PutDentista(int id, [FromBody] DentistaDTO dentistaDTO)
     {
         try
         {
@@ -98,7 +122,11 @@ public class DentistaController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public IActionResult Delete(int id)
+    [SwaggerOperation(Summary = "Deleta um dentista pelo ID.")]
+    [SwaggerResponse(200, "Dentista deletado com sucesso.")]
+    [SwaggerResponse(400, "Requisição inválida. Verifique os dados fornecidos.")]
+    [SwaggerResponse(500, "Erro interno no servidor.")]
+    public IActionResult DeleteDentista(int id)
     {
         try
         {

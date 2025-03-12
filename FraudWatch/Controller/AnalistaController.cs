@@ -1,6 +1,7 @@
 ﻿using FraudWatch.Application.DTOs;
 using FraudWatch.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace FraudWatch.Presentation.Controller;
 
@@ -16,7 +17,12 @@ public class AnalistaController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult Get()
+    [SwaggerOperation(Summary = "Retorna uma lista de todos os analistas.")]
+    [SwaggerResponse(200, "Analistas obtidos com sucesso.")]
+    [SwaggerResponse(204, "Nenhum analista encontrado.")]
+    [SwaggerResponse(400, "Requisição inválida. Verifique os dados fornecidos.")]
+    [SwaggerResponse(500, "Erro interno no servidor.")]
+    public IActionResult GetAllAnalistas()
     {
         try
         {
@@ -34,7 +40,12 @@ public class AnalistaController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public IActionResult Get(int id)
+    [SwaggerOperation(Summary = "Retorna um analista pelo ID.")]
+    [SwaggerResponse(200, "Analista obtido com sucesso.")]
+    [SwaggerResponse(400, "Requisição inválida. Verifique os dados fornecidos.")]
+    [SwaggerResponse(404, "Analista não encontrado.")]
+    [SwaggerResponse(500, "Erro interno no servidor.")]
+    public IActionResult GetAnalistaById(int id)
     {
         try
         {
@@ -52,7 +63,12 @@ public class AnalistaController : ControllerBase
     }
 
     [HttpGet("departamento/{departamento}")]
-    public IActionResult Get(string departamento)
+    [SwaggerOperation(Summary = "Retorna um analista pelo departamento.")]
+    [SwaggerResponse(200, "Analista obtido com sucesso.")]
+    [SwaggerResponse(400, "Requisição inválida. Verifique os dados fornecidos.")]
+    [SwaggerResponse(404, "Analista não encontrado.")]
+    [SwaggerResponse(500, "Erro interno no servidor.")]
+    public IActionResult GetAnalistaByDepartamento(string departamento)
     {
         try
         {
@@ -70,12 +86,16 @@ public class AnalistaController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Post([FromBody] AnalistaDTO analistaDTO)
+    [SwaggerOperation(Summary = "Adiciona um novo analista.")]
+    [SwaggerResponse(201, "Analista adicionado com sucesso.")]
+    [SwaggerResponse(400, "Requisição inválida. Verifique os dados fornecidos.")]
+    [SwaggerResponse(500, "Erro interno no servidor.")]
+    public IActionResult PostAnalista([FromBody] AnalistaDTO analistaDTO)
     {
         try
         {
             _analistaApplicationService.Add(analistaDTO);
-            return Ok();
+            return Created();
         }
         catch (Exception ex)
         {
@@ -84,7 +104,11 @@ public class AnalistaController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public IActionResult Put(int id, [FromBody] AnalistaDTO analistaDTO)
+    [SwaggerOperation(Summary = "Atualiza um analista pelo ID.")]
+    [SwaggerResponse(200, "Analista atualizado com sucesso.")]
+    [SwaggerResponse(400, "Requisição inválida. Verifique os dados fornecidos.")]
+    [SwaggerResponse(500, "Erro interno no servidor.")]
+    public IActionResult PutAnalista(int id, [FromBody] AnalistaDTO analistaDTO)
     {
         try
         {
@@ -98,7 +122,11 @@ public class AnalistaController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public IActionResult Delete(int id)
+    [SwaggerOperation(Summary = "Deleta um analista pelo ID.")]
+    [SwaggerResponse(200, "Analista deletado com sucesso.")]
+    [SwaggerResponse(400, "Requisição inválida. Verifique os dados fornecidos.")]
+    [SwaggerResponse(500, "Erro interno no servidor.")]
+    public IActionResult DeleteAnalista(int id)
     {
         try
         {
