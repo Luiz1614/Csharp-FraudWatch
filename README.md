@@ -43,4 +43,25 @@ Se, no futuro, o projeto precisar escalar significativamente, a modularização 
 
 ### Passos
 1. Clone o repositório:
-    
+    ```bash
+    git clone <url-do-repositorio>
+    ```
+
+2. Navegue até o diretório do projeto:
+    ```bash
+    cd FraudWatch
+    ```
+
+3. Restaure as dependências do projeto:
+    ```bash
+    dotnet restore
+    ```
+
+4. Crie o banco de dados (se necessário):
+    - Certifique-se de ter o Oracle Database ou outro banco de dados configurado corretamente.
+    - Se estiver usando Oracle, crie um banco de dados e configure as credenciais no arquivo de configuração `appsettings.json`.
+
+5. Execute a aplicação:
+    ```bash
+    dotnet run
+    ```
