@@ -1,6 +1,9 @@
 # FraudWatch API
 
 ## Integrantes do Grupo
+- RM553542 Luiz Otávio - 2tdspr
+- RM553483 Vitor de Melo - 2tdspr
+- RM553748 Mauricio Pereira - 2tdspc
 
 ## Definição da Arquitetura da API e Justificativa da Escolha
 
