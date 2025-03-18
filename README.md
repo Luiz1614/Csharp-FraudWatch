@@ -38,7 +38,7 @@ Se, no futuro, o projeto precisar escalar significativamente, a modularização 
 - **Repository Pattern**: Para abstrair a lógica de acesso a dados e facilitar a manutenção e testes.
 - **Factory Pattern**: Para a criação de objetos complexos, promovendo a reutilização de código e a separação de responsabilidades.
 
-## Instruções para Rodar a API
+## Instruções para Rodar a API (LocalHost)
 
 ### Pré-requisitos
 - .NET 8 SDK
