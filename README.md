@@ -25,7 +25,7 @@ Os principais motivos para manter a arquitetura monolítica são:
 - **Menor complexidade**: O desenvolvimento e a manutenção são mais simples, pois toda a aplicação reside em um único código-base.
 - **Menos Overhead**: Em um monolito, os módulos se comunicam internamente, enquanto em microsserviços seria necessário implementar comunicação via HTTP ou mensageria.
 - **Facilidade de Deploy**: Um único deploy facilita a gestão de versões e a integração contínua, sem necessidade de pipelines separados para diferentes serviços.
-- **Menos Custos Operacionais**: Microsserviços exigiram uma infraestrutura mais robusta, como Kubernetes e gerenciamento de múltiplos bancos de dados, o que não é necessário para este projeto.
+- **Menos Custos Operacionais**: Microsserviços exigem uma infraestrutura mais robusta, como Kubernetes e gerenciamento de múltiplos bancos de dados, o que não é necessário para este projeto.
 - **Escalabilidade Controlada**: Mesmo em uma arquitetura monolítica, é possível otimizar o desempenho e escalar a aplicação horizontalmente caso necessário.
 
 #### Conclusão
@@ -68,3 +68,45 @@ Se, no futuro, o projeto precisar escalar significativamente, a modularização 
     ```bash
     dotnet run
     ```
+
+## Endpoints da API
+
+### Analista
+
+- **GET** `/api/Analista`
+  - Retorna uma lista de todos os analistas.
+
+- **POST** `/api/Analista`
+  - Adiciona um novo analista.
+
+- **GET** `/api/Analista/{id}`
+  - Retorna um analista pelo ID.
+
+- **PUT** `/api/Analista/{id}`
+  - Atualiza um analista pelo ID.
+
+- **DELETE** `/api/Analista/{id}`
+  - Deleta um analista pelo ID.
+
+- **GET** `/api/Analista/departamento/{departamento}`
+  - Retorna um analista pelo departamento.
+
+### Dentista
+
+- **GET** `/api/Dentista`
+  - Retorna uma lista de todos os dentistas.
+
+- **POST** `/api/Dentista`
+  - Adiciona um novo dentista.
+
+- **GET** `/api/Dentista/{id}`
+  - Retorna um dentista pelo ID.
+
+- **PUT** `/api/Dentista/{id}`
+  - Atualiza um dentista pelo ID.
+
+- **DELETE** `/api/Dentista/{id}`
+  - Deleta um dentista pelo ID.
+
+- **GET** `/api/Dentista/cro/{cro}`
+  - Retorna um dentista pelo CRO.
