@@ -71,6 +71,11 @@ Se, no futuro, o projeto precisar escalar significativamente, a modularização 
 
 ## Endpoints da API
 
+### URLs Base
+
+- Local: https://localhost:7299
+- Web: https://webappfraudwatch.azurewebsites.net
+
 ### Analista
 
 - **GET** `/api/Analista`
