@@ -47,7 +47,7 @@ Se, no futuro, o projeto precisar escalar significativamente, a modularização 
 ### Passos
 1. Clone o repositório:
     ```bash
-    git clone <url-do-repositorio>
+    git clone https://github.com/Luiz1614/Csharp-FraudWatch.git
     ```
 
 2. Navegue até o diretório do projeto:
