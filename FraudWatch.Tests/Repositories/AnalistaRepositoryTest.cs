@@ -14,7 +14,7 @@ public class AnalistaRepositoryTests
     }
 
     [Fact]
-    public void ShouldGetAllAnalistasAsync()
+    public void ShouldGetAllAnalistas()
     {
         // Arrange
         var analista = new AnalistaEntity
@@ -43,7 +43,7 @@ public class AnalistaRepositoryTests
     }
 
     [Fact]
-    public void ShouldGetAnalistaByIdAsync()
+    public void ShouldGetAnalistaById()
     {
         // Arrange
         var analista = new AnalistaEntity
@@ -72,7 +72,7 @@ public class AnalistaRepositoryTests
     }
 
     [Fact]
-    public void ShouldGetAnalistaByDepartamentoAsync()
+    public void ShouldGetAnalistaByDepartamento()
     {
         // Arrange
         var analista = new AnalistaEntity
@@ -101,7 +101,7 @@ public class AnalistaRepositoryTests
     }
 
     [Fact]
-    public void ShouldAddAnalistaAsync()
+    public void ShouldAddAnalista()
     {
         //arrange
         var analista = new AnalistaEntity
@@ -124,7 +124,7 @@ public class AnalistaRepositoryTests
     }
 
     [Fact]
-    public void ShouldUpdateAnalistaAsync()
+    public void ShouldUpdateAnalista()
     {
         //arrange
         var analista = new AnalistaEntity
@@ -147,7 +147,7 @@ public class AnalistaRepositoryTests
     }
 
     [Fact]
-    public void ShouldDeleteAnalistaAsync()
+    public void ShouldDeleteAnalista()
     {
         //arrange
         var analista1 = new AnalistaEntity
