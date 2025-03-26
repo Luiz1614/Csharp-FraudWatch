@@ -13,12 +13,23 @@ public class ViaCepApplicationService : IViaCepApplicationService
         _httpClient = httpClient;
     }
 
-    public async Task<ViaCepResponseEntity> GetAddressByCep(string cep)
+    public async Task<ViaCepResponseEntity?> GetAddressByCep(string cep)
     {
         var response = await _httpClient.GetAsync($"https://viacep.com.br/ws/{cep}/json/");
 
+        if (!response.IsSuccessStatusCode)
+        {
+            return null;
+        }
+
         var content = await response.Content.ReadAsStringAsync();
+
+        if (string.IsNullOrWhiteSpace(content))
+        {
+            return null;
+        }
 
         return JsonConvert.DeserializeObject<ViaCepResponseEntity>(content);
     }
+
 }
