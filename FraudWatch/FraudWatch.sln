@@ -21,6 +21,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FraudWatch.Application", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudWatch.IoC", "..\FraudWatch.IoC\FraudWatch.IoC.csproj", "{7910D094-D2BB-4E56-B26F-1C8EC09BBCCB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{D0361764-DCA6-4D71-AC9D-E8C1DA889E85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudWatch.Tests", "..\FraudWatch.Tests\FraudWatch.Tests.csproj", "{029BBCEE-5CDA-47DB-A218-5B45A325D6EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,10 @@ Global
 		{7910D094-D2BB-4E56-B26F-1C8EC09BBCCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7910D094-D2BB-4E56-B26F-1C8EC09BBCCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7910D094-D2BB-4E56-B26F-1C8EC09BBCCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{029BBCEE-5CDA-47DB-A218-5B45A325D6EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{029BBCEE-5CDA-47DB-A218-5B45A325D6EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{029BBCEE-5CDA-47DB-A218-5B45A325D6EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{029BBCEE-5CDA-47DB-A218-5B45A325D6EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +65,7 @@ Global
 		{37D087D7-EBE1-4273-9EC0-9636FD5E31C4} = {BBFE85A7-C2D5-40AF-BCD4-F7CA7FFAF7DB}
 		{2781A608-AD62-41E2-811D-7EEFBD08FA89} = {E99517A0-C62C-40BD-A578-837BC01167F0}
 		{7910D094-D2BB-4E56-B26F-1C8EC09BBCCB} = {BBFE85A7-C2D5-40AF-BCD4-F7CA7FFAF7DB}
+		{029BBCEE-5CDA-47DB-A218-5B45A325D6EF} = {D0361764-DCA6-4D71-AC9D-E8C1DA889E85}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {07E1EF78-EA97-4C26-810F-73C4172AB2D4}
