@@ -1,5 +1,7 @@
 ﻿using FraudWatch.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
 
 namespace FraudWatch.Api.Controller;
 
@@ -15,16 +17,20 @@ public class AddressController : ControllerBase
     }
 
     [HttpGet("{cep}")]
+    [SwaggerOperation(Summary = "Retorna um endereço pelo CEP.")]
+    [SwaggerResponse(200, "Endereço obtido com sucesso.")]
+    [SwaggerResponse(400, "Requisição inválida. Verifique os dados fornecidos.")]
+    [SwaggerResponse(500, "Erro interno no servidor.")]
     public async Task<IActionResult> GetAddressByCep(string cep)
     {
         try
         {
             var address = await _viaCepApplicationService.GetAddressByCep(cep);
-            return Ok(address);
+            return StatusCode((int)HttpStatusCode.OK, address);
         }
         catch (Exception ex)
         {
-            return BadRequest(ex.Message);
+            return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
         }
     }
 }
