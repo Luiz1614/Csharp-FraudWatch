@@ -31,6 +31,8 @@ public class Bootstrap
         service.AddScoped<IDentistaFactory, DentistaFactory>();
         service.AddScoped<IAnalistaFactory, AnalistaFactory>();
 
+        service.AddTransient<IViaCepApplicationService, ViaCepApplicationService>();
+
         service.AddAutoMapper(typeof(MapperProfile));
     }
 

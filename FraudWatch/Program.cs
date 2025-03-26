@@ -22,6 +22,13 @@ builder.Services.AddSwaggerGen(
     }
 );
 
+builder.Services.AddHttpClient("ViaCep", client =>
+{
+    client.BaseAddress = new Uri("https://viacep.com.br/ws/");
+    client.DefaultRequestHeaders.Add("Accept", "application/json");
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

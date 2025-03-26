@@ -10,5 +10,6 @@ public class MapperProfile : Profile
     {
         CreateMap<AnalistaEntity, AnalistaDTO>().ReverseMap();
         CreateMap<DentistaEntity, DentistaDTO>().ReverseMap();
+        CreateMap<ViaCepResponseEntity, ViaCepResponseDTO>().ReverseMap();
     }
 }
