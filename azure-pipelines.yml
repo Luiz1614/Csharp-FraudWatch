@@ -1,0 +1,41 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+# Instalar o NuGet
+- task: NuGetToolInstaller@1
+
+# Restaurar pacotes NuGet
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+# Compilar a solução
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+# Executar testes
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+# Fazer deploy no Azure App Service
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: '<Nome da Conexão de Serviço>' # Substitua pelo nome da sua conexão de serviço
+    appType: 'webApp'
+    appName: '<Nome do App Service>' # Substitua pelo nome do App Service
+    package: '$(build.artifactStagingDirectory)/**/*.zip'
