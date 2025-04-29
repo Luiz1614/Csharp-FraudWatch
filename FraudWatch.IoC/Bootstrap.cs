@@ -33,6 +33,8 @@ public class Bootstrap
 
         service.AddTransient<IViaCepApplicationService, ViaCepApplicationService>();
 
+        service.AddTransient<ISentimentAnalysisApplicationService, SentimentAnalysisApplicationService>();
+
         service.AddAutoMapper(typeof(MapperProfile));
     }
 
