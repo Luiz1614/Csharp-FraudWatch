@@ -19,34 +19,12 @@ public class SentimentAnalysisApplicationService : ISentimentAnalysisApplication
 
     private void TrainModel()
     {
-        var trainingData = new List<SentimentData>
-        {
-            // Experiências positivas
-            new SentimentData { Text = PreprocessText("Gostei muito!"), Label = "Positivo" },
-            new SentimentData { Text = PreprocessText("Foi excelente!"), Label = "Positivo" },
-            new SentimentData { Text = PreprocessText("Adorei o serviço!"), Label = "Positivo" },
-            new SentimentData { Text = PreprocessText("Muito bom!"), Label = "Positivo" },
-            new SentimentData { Text = PreprocessText("Ótimo atendimento!"), Label = "Positivo" },
-            new SentimentData { Text = PreprocessText("Recomendo muito!"), Label = "Positivo" },
-            new SentimentData { Text = PreprocessText("Fiquei muito satisfeito!"), Label = "Positivo" },
-            new SentimentData { Text = PreprocessText("Excelente trabalho!"), Label = "Positivo" },
-            new SentimentData { Text = PreprocessText("Tudo perfeito!"), Label = "Positivo" },
-            new SentimentData { Text = PreprocessText("O melhor atendimento que já tive!"), Label = "Positivo" },
+        var filePath = Path.Combine(AppContext.BaseDirectory, "Data", "training_data.csv");
 
-            // Experiências negativas
-            new SentimentData { Text = PreprocessText("Não gostei."), Label = "Negativo" },
-            new SentimentData { Text = PreprocessText("Foi ruim."), Label = "Negativo" },
-            new SentimentData { Text = PreprocessText("Péssimo atendimento."), Label = "Negativo" },
-            new SentimentData { Text = PreprocessText("Odiei o serviço."), Label = "Negativo" },
-            new SentimentData { Text = PreprocessText("Muito ruim."), Label = "Negativo" },
-            new SentimentData { Text = PreprocessText("Não recomendo."), Label = "Negativo" },
-            new SentimentData { Text = PreprocessText("Fiquei muito insatisfeito."), Label = "Negativo" },
-            new SentimentData { Text = PreprocessText("Foi uma experiência ruim."), Label = "Negativo" },
-            new SentimentData { Text = PreprocessText("Não valeu a pena."), Label = "Negativo" },
-            new SentimentData { Text = PreprocessText("O atendimento foi muito ruim."), Label = "Negativo" }
-        };
-
-        var dataView = _mlContext.Data.LoadFromEnumerable(trainingData);
+        var dataView = _mlContext.Data.LoadFromTextFile<SentimentData>(
+            filePath,
+            hasHeader: true,
+            separatorChar: ',');
 
         var pipeline = _mlContext.Transforms.Text.FeaturizeText("Features", nameof(SentimentData.Text))
             .Append(_mlContext.Transforms.NormalizeMinMax("Features"))
@@ -56,6 +34,7 @@ public class SentimentAnalysisApplicationService : ISentimentAnalysisApplication
 
         _model = pipeline.Fit(dataView);
     }
+
 
     public SentimentPrediction Predict(string text)
     {
