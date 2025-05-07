@@ -74,7 +74,7 @@ Se, no futuro, o projeto precisar escalar significativamente, a modularização 
 ### URLs Base
 
 - Local: https://localhost:7299
-- Web: https://webappfraudwatch.azurewebsites.net
+- Web: https://fraudwatch-devops-a6fbf8fvegfde9ef.eastus-01.azurewebsites.net/
 
 ### Analista
 
