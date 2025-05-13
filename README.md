@@ -38,6 +38,49 @@ Se, no futuro, o projeto precisar escalar significativamente, a modularização 
 - **Repository Pattern**: Para abstrair a lógica de acesso a dados e facilitar a manutenção e testes.
 - **Factory Pattern**: Para a criação de objetos complexos, promovendo a reutilização de código e a separação de responsabilidades.
 
+## Testes
+
+Este projeto inclui um projeto de testes que valida o comportamento e a funcionalidade das principais partes do sistema. Os testes cobrem diferentes cenários para garantir a qualidade e a confiabilidade do código.
+
+## Práticas de Clean Code
+
+Este projeto segue princípios de Clean Code para garantir legibilidade, manutenibilidade e qualidade do código. Algumas das práticas aplicadas incluem:
+
+- **Nomes Significativos**: Variáveis, métodos e classes possuem nomes claros e descritivos, refletindo sua intenção.
+- **Funções Simples e Pequenas**: Métodos foram projetados para realizar apenas uma tarefa, facilitando a compreensão e reutilização.
+- **Organização do Código**: Estrutura do projeto bem definida, com separação de responsabilidades e uso de padrões de projeto quando necessário.
+- **Evitar Código Duplicado**: Reutilização de lógica comum para reduzir redundância.
+- **Comentários Relevantes**: Apenas comentários necessários foram adicionados para explicar partes complexas do código.
+- **Tratamento de Erros**: Uso adequado de exceções e validações para garantir a robustez do sistema.
+- **Formatação Consistente**: Código formatado de maneira uniforme para facilitar a leitura e colaboração.
+
+Essas práticas ajudam a manter o código limpo, eficiente e fácil de evoluir.
+
+## SentimentAnalysisApplicationService
+
+A classe `SentimentAnalysisApplicationService` é responsável por realizar análises de sentimento em textos utilizando o framework **ML.NET**. Ela treina um modelo de aprendizado de máquina com base em dados de treinamento e realiza previsões para classificar textos como "Positivo" ou "Negativo". 
+
+### Funcionalidades principais:
+- **Treinamento do Modelo**: 
+  - Carrega dados de treinamento a partir de um arquivo CSV.
+  - Aplica transformações de texto, normalização e treinamento usando o algoritmo `SdcaMaximumEntropy`.
+- **Previsão de Sentimento**:
+  - Recebe um texto como entrada, realiza pré-processamento (remoção de acentos, pontuações e normalização) e utiliza o modelo treinado para prever o sentimento.
+  - Retorna a classificação ("Positivo" ou "Negativo") com base na pontuação mais alta.
+- **Pré-processamento de Texto**:
+  - Limpa e normaliza o texto de entrada para melhorar a precisão do modelo.
+
+### Estrutura:
+- **Dependências**:
+  - `MLContext` para gerenciar o pipeline de aprendizado de máquina.
+  - `ITransformer` para armazenar o modelo treinado.
+- **Entrada e Saída**:
+  - Entrada: Texto a ser analisado.
+  - Saída: Objeto `SentimentPrediction` contendo o rótulo previsto e as pontuações associadas.
+
+Essa classe é essencial para automatizar a análise de sentimentos, sendo útil em cenários como monitoramento de feedbacks, análises de redes sociais ou qualquer aplicação que exija classificação de texto.
+
+
 ## Instruções para Rodar a API (LocalHost)
 
 ### Pré-requisitos
