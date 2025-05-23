@@ -5,7 +5,6 @@
 - RM553483 Vitor de Melo - 2tdspr
 - RM553748 Mauricio Pereira - 2tdspc
 
-
 ## Definição da Arquitetura da API e Justificativa da Escolha
 
 ### Arquitetura Monolítica
@@ -159,3 +158,11 @@ Essa classe é essencial para automatizar a análise de sentimentos, sendo útil
 
 - **GET** `/api/Dentista/cro/{cro}`
   - Retorna um dentista pelo CRO.
+
+### Address
+- **GET** `/api/address/{cep}`
+  - Retorna um endereço pelo CEP
+ 
+### FeedBack
+- **POST** `/api/sentment/feedback`
+  - Retorna se o feedback do paciente foi positivo ou negativo.
