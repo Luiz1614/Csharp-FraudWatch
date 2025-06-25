@@ -18,8 +18,8 @@ public class Bootstrap
     {
         service.AddDbContext<ApplicationContext>(options =>
         {
-            var connectionString = configuration.GetConnectionString("Oracle");
-            options.UseOracle(connectionString);
+            var connectionString = configuration.GetConnectionString("MySql");
+            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         });
 
         service.AddTransient<IDentistaRepository, DentistaRepository>();
